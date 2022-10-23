@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     onItemTap(args) {
-      console.log(this.API);
       let API  = this.API;
       this.$navigateTo(ItemDetails, {
         frame: "items",

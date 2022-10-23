@@ -14,14 +14,9 @@
       >
       <Label class="h3">API: {{ API }}</Label>
 
-      <button
-        height="30%"
-        width="100%"
-      
-        @tap="ligaDesligaLampada()"
-      >
+      <button height="30%" width="100%" @tap="ligaDesligaLampada()">
         <FormattedString>
-          <Span style="font-size:30%" :text="text_button" fontWeight="bold" />
+          <Span style="font-size: 30%" :text="text_button" fontWeight="bold" />
         </FormattedString>
       </button>
     </GridLayout>
@@ -46,8 +41,13 @@ export default {
     async atualizaDadosTela() {
       let responseApi = await this.checarEstadoLampada();
       if (responseApi == false) {
-        this.estado_lampada = "Dispositivo não encontrado";
-        return;
+        alert({
+          title: "Erro",
+          message: "Dispositivo não encontrado",
+          okButtonText: "Voltar",
+        }).then(() => {
+          this.$navigateBack();
+        });
       }
       //Se a lampada está ligada, exibe o estado ligada.
       this.estado_lampada = responseApi.estado ? "Ligada" : "Desligada";
@@ -58,20 +58,22 @@ export default {
     },
     async ligaDesligaLampada() {
       let att = await this.atualizaDadosTela();
-
       let res = await this.ligaDesligaLampadaApi(!this.acao_button);
       att = await this.atualizaDadosTela();
     },
     async checarEstadoLampada() {
-      let result = await Http.getJSON(this.API + "/").then(
-        (result) => {
-          return result;
-        },
-        (e) => {
-          return false;
-        }
-      );
-      return result;
+      return await Http.getJSON(this.API + "/")
+        .then(
+          (result) => {
+            return result;
+          },
+          (e) => {
+            return false;
+          }
+        )
+        .catch((a) => {
+          console.log(a);
+        });
     },
     async ligaDesligaLampadaApi(comando) {
       let url_api = this.API + (comando ? "/ligar" : "/desligar");

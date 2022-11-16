@@ -1,8 +1,8 @@
 
 # Título do Projeto
 
-Trabalho de conclusão de curso da faculdade Dom Pedro II, curso de engenharia elétrica.
-Este trabalho serve de base para qualquer pessoas que queira construir um sistema automatizado.
+Trabalho de conclusão de curso de engenharia elétrica da faculdade Dom Pedro II.
+Este trabalho serve de base para qualquer pessoa que queira construir um sistema automatizado.
 
 
 

@@ -1,14 +1,14 @@
 #include <WiFi.h>
 #include <ArduinoJson.h>
 
-const char *ssid = "JD FIBRA";
-const char *password = "@!0sT96jH";
+const char *ssid = "nome da rede wifi";
+const char *password = "senha do wifi";
 
 WiFiServer server(80);
-
+int rele =13;
 void setup() {
   Serial.begin(115200);
-  pinMode(2, OUTPUT);  // set the LED pin mode
+  pinMode(rele, OUTPUT);  // set the LED pin mode
 
   delay(10);
 
@@ -59,7 +59,7 @@ void loop() {
             client.println("Content-type:application/json");
             client.println();
 
-            if (digitalRead(2)) {
+            if (digitalRead(rele)) {
               doc["estado"] = true;
             } else {
               doc["estado"] = false;
@@ -80,10 +80,10 @@ void loop() {
 
         // Check to see if the client request was "GET /H" or "GET /L":
         if (currentLine.endsWith("GET /ligar")) {
-          digitalWrite(2, HIGH);  // GET /H turns the LED on
+          digitalWrite(rele, HIGH);  // GET /H turns the LED on
         }
         if (currentLine.endsWith("GET /desligar")) {
-          digitalWrite(2, LOW);  // GET /L turns the LED off
+          digitalWrite(rele, LOW);  // GET /L turns the LED off
         }
       }
     }

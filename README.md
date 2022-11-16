@@ -1,5 +1,5 @@
 
-# Título do Projeto
+# Domo Callidus
 
 Trabalho de conclusão de curso de engenharia elétrica da faculdade Dom Pedro II.
 Este trabalho serve de base para qualquer pessoa que queira construir um sistema automatizado.

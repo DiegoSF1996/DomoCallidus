@@ -4,6 +4,13 @@
 Trabalho de conclusão de curso de engenharia elétrica da faculdade Dom Pedro II.
 Este trabalho serve de base para qualquer pessoa que queira construir um sistema automatizado.
 
+A presente aplicação permite acender e apagar uma lâmpada  por meio de um aplicativo para android.
+O App e o ESP32 devem estar conectados a mesma rede wifi para que a comunicação ocorra.
+O Acionamento da lâmpada ocorre no seguinte fluxo:
+- Usuário aciona botão no app
+- app envia comando para ip do esp32 atraves do wifi
+- esp32 recebe sinal e aciona o rele permitindo a tensão da rede elétrica fluir para a lâmpada.
+
 
 
 ## NativeScript

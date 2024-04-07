@@ -23,3 +23,4 @@ Este trabalho serve de base para qualquer pessoa que queira construir um sistema
 ```
 
 ## ESP32
+Foi utilizado a IDE do arduino para programar e gravar o software no ESP32
